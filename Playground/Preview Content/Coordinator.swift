@@ -12,6 +12,8 @@ import Combine
 
 class Coordinator: NSObject, ARSessionDelegate, UIGestureRecognizerDelegate {
     
+    // This is a comment to test a commit and push
+    
     weak var view: ARView?
     
     let anchor = AnchorEntity(plane: .horizontal)
