@@ -14,6 +14,7 @@ class Coordinator: NSObject, ARSessionDelegate, UIGestureRecognizerDelegate {
     
     // This is a comment to test a commit and push
     // This is a second test
+    // This is a 3rd comment
     
     weak var view: ARView?
     
