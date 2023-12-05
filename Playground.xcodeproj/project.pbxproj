@@ -12,6 +12,7 @@
 		D60479142B1C3452003C95A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60479132B1C3452003C95A8 /* Assets.xcassets */; };
 		D60479172B1C3452003C95A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60479162B1C3452003C95A8 /* Preview Assets.xcassets */; };
 		D604791E2B1C346C003C95A8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604791D2B1C346C003C95A8 /* Coordinator.swift */; };
+		D60479242B1FA39E003C95A8 /* MovableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60479232B1FA39E003C95A8 /* MovableEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		D60479132B1C3452003C95A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D60479162B1C3452003C95A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D604791D2B1C346C003C95A8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D60479232B1FA39E003C95A8 /* MovableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovableEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				D604791D2B1C346C003C95A8 /* Coordinator.swift */,
+				D60479232B1FA39E003C95A8 /* MovableEntity.swift */,
 				D60479162B1C3452003C95A8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D60479122B1C3451003C95A8 /* ContentView.swift in Sources */,
+				D60479242B1FA39E003C95A8 /* MovableEntity.swift in Sources */,
 				D60479102B1C3451003C95A8 /* AppDelegate.swift in Sources */,
 				D604791E2B1C346C003C95A8 /* Coordinator.swift in Sources */,
 			);

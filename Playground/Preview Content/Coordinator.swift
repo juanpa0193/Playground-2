@@ -15,20 +15,13 @@ class Coordinator: NSObject, ARSessionDelegate, UIGestureRecognizerDelegate {
     weak var view: ARView?
     
     let anchor = AnchorEntity(plane: .horizontal)
-    let box1 = ModelEntity(mesh: MeshResource.generateBox(size: 0.3), materials: [SimpleMaterial(color: .gray, isMetallic: true)])
+    let box1 = MovableEntity(size: 0.3, color: .gray, shape: .sphere)
     
-    var movableEntities = [ModelEntity]()
+    var movableEntities = [MovableEntity]()
     
     func buildEnvironment() {
         
         guard let view = view else { return }
-        
-//        let floor = ModelEntity(mesh: MeshResource.generatePlane(width: 1, depth: 1, cornerRadius: 0.5), materials: [SimpleMaterial(color: .white, isMetallic: true)])
-//        floor.generateCollisionShapes(recursive: true)
-//        floor.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .static)
-        
-        box1.generateCollisionShapes(recursive: true)
-        //box1.physicsBody = PhysicsBodyComponent(mode: .dynamic)
         
         movableEntities.append(box1)
         
@@ -61,13 +54,9 @@ class Coordinator: NSObject, ARSessionDelegate, UIGestureRecognizerDelegate {
             
             let newAnchor = AnchorEntity(raycastResult: result)
             
-            let newBox = ModelEntity(mesh: MeshResource.generateBox(size: 0.3), materials: [SimpleMaterial(color: .gray, isMetallic: true)])
-            newBox.generateCollisionShapes(recursive: true)
-//            newBox.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .default)
-//            newBox.collision = CollisionComponent(shapes: [.generateBox(size: [0.2, 0.2, 0.2])], mode: .trigger, filter: .sensor)
-//            newBox.position.y = 0.3
+            let newEntity = MovableEntity(size: 0.3, color: .cyan, shape: .sphere)
             
-            movableEntities.append(newBox)
+            movableEntities.append(newEntity)
             if let movableEntity = movableEntities.last {
                 view.installGestures(.all, for: movableEntity).forEach {
                     $0.delegate = self
@@ -76,8 +65,8 @@ class Coordinator: NSObject, ARSessionDelegate, UIGestureRecognizerDelegate {
                 return
             }
             
-            newAnchor.addChild(newBox)
-            view.installGestures(.all, for: newBox)
+            newAnchor.addChild(newEntity)
+            view.installGestures(.all, for: newEntity)
             
             view.scene.addAnchor(newAnchor)
         }
@@ -113,7 +102,7 @@ class Coordinator: NSObject, ARSessionDelegate, UIGestureRecognizerDelegate {
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let translationGesture = gestureRecognizer as? EntityTranslationGestureRecognizer,
-              let entity = translationGesture.entity as? ModelEntity else {
+              let entity = translationGesture.entity as? MovableEntity else {
             return true
         }
         
